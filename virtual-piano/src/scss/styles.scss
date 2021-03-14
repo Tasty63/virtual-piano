@@ -1,0 +1,142 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:regular);
+@import url(https://fonts.googleapis.com/css?family=Clicker+Script:regular);
+
+$mainFont: 'Roboto';
+$secondFont: 'Clicker Script';
+$maxWidthContainer: 1362px;
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background: url('/virtual-piano/assets/images/bg.png') no-repeat;
+	background-size: cover;
+}
+
+.piano {
+	width: 100%;
+	max-width: $maxWidthContainer;
+	margin: auto;
+	background: #221e1e;
+	padding-bottom: 55px;
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 15px;
+		margin-bottom: 40px;
+		border-bottom: 1px solid #d7e4b2;
+	}
+
+	&__switcher {
+	}
+
+	&__title {
+		margin: 0;
+		margin-bottom: -20px;
+		font-family: $secondFont;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 72px;
+		line-height: 95px;
+		color: #fffffc;
+	}
+
+	&__fulscreen {
+		width: 55px;
+		height: 55px;
+		padding: 0;
+		border: none;
+		outline: none;
+		background: url(/virtual-piano/assets/images/fullscreen-open.svg) no-repeat;
+
+		&:hover {
+			cursor: pointer;
+		}
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+
+	&__keyboard {
+		display: flex;
+		justify-content: center;
+	}
+}
+.keyboard {
+	&__key {
+		border-radius: 0px 0px 15px 15px;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&_black {
+			position: absolute;
+			left: 52px;
+			width: 51px;
+			height: 216px;
+			z-index: 1;
+			background: #000000;
+			border: 1px solid #000000;
+			// box-shadow: 0px 8px 0px #000000, -10px 4px 4px rgba(0, 0, 0, 0.25),
+			// 	inset -2px 0px 5px rgba(225, 225, 225, 0.66);
+
+			box-shadow: 0px 8px 0px #000000, -10px 4px 4px rgba(0, 0, 0, 0.25),
+				inset -2px 0px 5px rgba(225, 225, 225, 0.66), inset 1px -2px 5px rgba(225, 225, 225, 0.66);
+			border-radius: 0px 0px 15px 15px;
+		}
+
+		&_white {
+			position: relative;
+			width: 73px;
+			height: 340px;
+			background: #fcfcfc;
+			margin-right: 10px;
+			box-shadow: inset 0px -15px 0px rgba(171, 165, 165, 0.66);
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&__key-name {
+	}
+}
+
+.footer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	&__container {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 50px 10px 50px;
+	}
+
+	&__github {
+	}
+
+	&__logo {
+	}
+}
+.github {
+	&__img {
+		width: 100px;
+		height: 80px;
+	}
+}
+.logo {
+	&__img {
+		width: 260px;
+		height: 80px;
+	}
+}
