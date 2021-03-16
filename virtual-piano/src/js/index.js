@@ -1,6 +1,5 @@
-const switchNotes = document.querySelector('.switch__notes');
-const switchLetters = document.querySelector('.switch__letters');
 const keyboard = document.querySelector('.keyboard');
+const switchButton = document.querySelector('.switch');
 
 function getKeyElement(event) {
 	if (event.type == 'keydown' || event.type == 'keyup') {
@@ -60,6 +59,22 @@ function playKey(event) {
 	}
 }
 
+function changeKeyNames(event) {
+	const letters = ['Q', '2', 'W', '3', 'E', 'R', '5', 'T', '6', 'Y', '7', 'U'];
+	const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+	const keyNamesElements = Array.from(document.querySelectorAll('.keyboard__key-name'));
+
+	if (event.target.classList.contains('switch__letters')) {
+		keyNamesElements.forEach((item, index) => {
+			item.textContent = letters[index];
+		});
+	} else if (event.target.classList.contains('switch__notes')) {
+		keyNamesElements.forEach((item, index) => {
+			item.textContent = notes[index];
+		});
+	}
+}
+
 keyboard.addEventListener('mousedown', (event) => {
 	playKey(event);
 	keyboard.addEventListener('mouseover', playKey);
@@ -70,3 +85,5 @@ keyboard.addEventListener('mouseup', (event) => removeActiveClass(event));
 window.addEventListener('keydown', (event) => playKey(event));
 window.addEventListener('keyup', (event) => removeActiveClass(event));
 window.addEventListener('mouseup', () => keyboard.removeEventListener('mouseover', playKey));
+
+switchButton.addEventListener('click', changeKeyNames);
