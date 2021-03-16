@@ -33,11 +33,8 @@ $maxWidthContainer: 1362px;
 		border-bottom: 1px solid #d7e4b2;
 	}
 
-	&__switch {
-	}
-
 	&__title {
-		margin: 0;
+		margin: 0 0 -20px -120px;
 		margin-bottom: -20px;
 		font-family: $secondFont;
 		font-style: normal;
@@ -81,9 +78,6 @@ $maxWidthContainer: 1362px;
 
 	&__notes {
 		display: none;
-
-		&:checked ~ .switch__current-choice {
-		}
 	}
 
 	&__letters {
@@ -184,12 +178,6 @@ $maxWidthContainer: 1362px;
 		justify-content: space-between;
 		align-items: center;
 		padding: 0 50px 10px 50px;
-	}
-
-	&__github {
-	}
-
-	&__logo {
 	}
 }
 .github {
