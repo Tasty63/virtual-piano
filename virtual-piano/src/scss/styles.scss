@@ -135,7 +135,7 @@ $maxWidthContainer: 1362px;
 				inset -2px 0px 5px rgba(225, 225, 225, 0.66), inset 1px -2px 5px rgba(225, 225, 225, 0.66);
 			border-radius: 0px 0px 15px 15px;
 
-			transition: box-shadow 0.15s ease, height 0.15s ease;
+			transition: box-shadow 0.18s ease, height 0.18s ease;
 			&.active {
 				box-shadow: none;
 				height: 225px;
@@ -152,7 +152,7 @@ $maxWidthContainer: 1362px;
 			display: flex;
 			justify-content: center;
 			align-items: flex-end;
-			transition: box-shadow 0.15s ease;
+			transition: box-shadow 0.18s ease;
 			&:last-child {
 				margin-right: 0;
 			}

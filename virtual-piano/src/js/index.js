@@ -2,15 +2,20 @@ const keyboard = document.querySelector('.keyboard');
 const switchNotes = document.querySelector('.switch__notes');
 const switchLetters = document.querySelector('.switch__letters');
 
-function getKeyElement(target) {
-	if (target.classList.contains('keyboard__key')) {
-		return target;
+function getKeyElement(event) {
+	if (event.type == 'keydown' || event.type == 'keyup') {
+		const key = document.querySelector(`.keyboard__key[data-keyCode=${event.code}]`);
+		return key;
 	}
-	return target.parentNode;
+
+	if (event.target.classList.contains('keyboard__key')) {
+		return event.target;
+	}
+	return event.target.parentNode;
 }
 
 function playAudio(event) {
-	const key = getKeyElement(event.target);
+	const key = getKeyElement(event);
 	const audio = new Audio();
 	const sound = key.dataset.sound;
 
@@ -19,17 +24,24 @@ function playAudio(event) {
 	audio.play();
 }
 
-function removeActive(event) {
-	if (event.target.classList.contains('active')) {
-		event.target.classList.remove('active');
-	}
+function setActiveClass(event) {
+	const key = getKeyElement(event);
+	key.classList.add('active');
+}
+
+function removeActiveClass(event) {
+	const key = getKeyElement(event);
+	key.classList.remove('active');
 }
 
 keyboard.addEventListener('click', (event) => {
-	const key = getKeyElement(event.target);
-	key.classList.add('active');
+	setActiveClass(event);
+	playAudio(event);
 });
+keyboard.addEventListener('transitionend', (event) => removeActiveClass(event));
 
-keyboard.addEventListener('transitionend', removeActive);
-
-keyboard.addEventListener('click', playAudio);
+window.addEventListener('keydown', (event) => {
+	playAudio(event);
+	setActiveClass(event);
+});
+window.addEventListener('keyup', (event) => removeActiveClass(event));
