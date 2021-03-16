@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const projectName = 'virtual-piano';
+const projectName = 'virtual-piano	';
 
 module.exports = {
 	experiments: {
@@ -65,6 +65,11 @@ module.exports = {
 			{
 				test: /\.ttf$/,
 				type: 'asset/inline',
+			},
+			{
+				test: /\.mp3$/,
+				include: SRC,
+				loader: 'file-loader',
 			},
 		],
 	},
