@@ -59,6 +59,10 @@ $maxWidthContainer: 1362px;
 		&:active {
 			transform: scale(0.9);
 		}
+
+		&.opened {
+			background: url(/virtual-piano/assets/images/fullscreen-exit.svg) no-repeat;
+		}
 	}
 
 	&__keyboard {
@@ -207,5 +211,80 @@ $maxWidthContainer: 1362px;
 	&__img {
 		width: 260px;
 		height: 80px;
+	}
+}
+
+@media (max-width: 1385px) {
+	.piano {
+		max-width: 900px;
+	}
+}
+
+@media (max-width: 925px) {
+	.piano {
+		max-width: 600px;
+		&__header {
+			padding: 0 10px;
+		}
+		&__title {
+			font-size: 60px;
+			line-height: 82px;
+			margin-left: 0;
+		}
+
+		&__fulscreen {
+			width: 35px;
+			height: 35px;
+			background-size: cover;
+		}
+	}
+	.switch {
+		&__label {
+			padding: 7px 7px;
+			font-size: 14px;
+		}
+	}
+}
+
+@media (max-width: 620px) {
+	.piano {
+		max-width: 350px;
+
+		&__title {
+			font-size: 36px;
+		}
+	}
+
+	.keyboard {
+		&__key {
+			&_white {
+				width: 42px;
+				height: 180px;
+				margin-right: 3px;
+			}
+			&_black {
+				width: 30px;
+				height: 100px;
+				left: 28px;
+				&.active {
+					height: 109px;
+				}
+			}
+		}
+		&__key-name {
+			font-size: 18px;
+		}
+	}
+	.github {
+		&__img {
+			width: 50px;
+			height: 40px;
+		}
+	}
+	.logo {
+		&__img {
+			width: 130px;
+			height: 40px;
+		}
 	}
 }
