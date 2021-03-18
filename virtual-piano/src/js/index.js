@@ -1,7 +1,7 @@
 const keyboard = document.querySelector('.keyboard');
 const switchButton = document.querySelector('.switch');
 const fulscreenButton = document.querySelector('.piano__fulscreen');
-const piano = document.querySelector('.piano');
+keyboard.focus();
 
 function getKeyElement(event) {
 	if (event.type == 'keydown' || event.type == 'keyup') {
@@ -123,11 +123,11 @@ keyboard.addEventListener('mousedown', (event) => {
 keyboard.addEventListener('mouseout', (event) => removeActiveClass(event));
 keyboard.addEventListener('mouseup', (event) => removeActiveClass(event));
 
-window.addEventListener('keydown', (event) => {
+keyboard.addEventListener('keydown', (event) => {
 	playKey(event);
 });
-window.addEventListener('keyup', (event) => removeActiveClass(event));
-window.addEventListener('mouseup', () => keyboard.removeEventListener('mouseover', playKey));
+keyboard.addEventListener('keyup', (event) => removeActiveClass(event));
+keyboard.addEventListener('mouseup', () => keyboard.removeEventListener('mouseover', playKey));
 
 switchButton.addEventListener('click', changeKeyNames);
 
