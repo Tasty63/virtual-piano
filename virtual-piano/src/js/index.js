@@ -1,7 +1,6 @@
 const keyboard = document.querySelector('.keyboard');
 const switchButton = document.querySelector('.switch');
 const fulscreenButton = document.querySelector('.piano__fulscreen');
-const piano = document.querySelector('.piano');
 
 function getKeyElement(event) {
 	if (event.type == 'keydown' || event.type == 'keyup') {
