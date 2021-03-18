@@ -59,6 +59,11 @@ $maxWidthContainer: 1362px;
 		&:active {
 			transform: scale(0.9);
 		}
+
+		&.opened {
+			background: url(/virtual-piano/assets/images/fullscreen-exit.svg);
+			background-size: cover;
+		}
 	}
 
 	&__keyboard {
