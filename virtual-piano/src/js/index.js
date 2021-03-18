@@ -1,7 +1,5 @@
 const keyboard = document.querySelector('.keyboard');
 const switchButton = document.querySelector('.switch');
-const fulscreenButton = document.querySelector('.piano__fulscreen');
-const piano = document.querySelector('.piano');
 
 function getKeyElement(event) {
 	if (event.type == 'keydown' || event.type == 'keyup') {
@@ -77,45 +75,6 @@ function changeKeyNames(event) {
 	}
 }
 
-function activateFullscreen(element) {
-	if (element.requestFullscreen) {
-		element.requestFullscreen();
-	} else if (element.mozRequestFullScreen) {
-		element.mozRequestFullScreen();
-	} else if (element.webkitRequestFullscreen) {
-		element.webkitRequestFullscreen();
-	} else if (element.msRequestFullscreen) {
-		element.msRequestFullscreen();
-	}
-}
-
-function deactivateFullscreen() {
-	if (document.exitFullscreen) {
-		document.exitFullscreen();
-	} else if (document.mozCancelFullScreen) {
-		document.mozCancelFullScreen();
-	} else if (document.webkitExitFullscreen) {
-		document.webkitExitFullscreen();
-	}
-}
-
-function isInFullscreen() {
-	if (
-		document.fullscreenElement ||
-		document.webkitIsFullScreen ||
-		document.mozFullScreen ||
-		document.msFullscreenElement
-	) {
-		return true;
-	}
-}
-
-function exitFullscreen() {
-	if (!isInFullscreen()) {
-		fulscreenButton.classList.remove('opened');
-	}
-}
-
 keyboard.addEventListener('mousedown', (event) => {
 	playKey(event);
 	keyboard.addEventListener('mouseover', playKey);
@@ -123,24 +82,8 @@ keyboard.addEventListener('mousedown', (event) => {
 keyboard.addEventListener('mouseout', (event) => removeActiveClass(event));
 keyboard.addEventListener('mouseup', (event) => removeActiveClass(event));
 
-window.addEventListener('keydown', (event) => {
-	playKey(event);
-});
+window.addEventListener('keydown', (event) => playKey(event));
 window.addEventListener('keyup', (event) => removeActiveClass(event));
 window.addEventListener('mouseup', () => keyboard.removeEventListener('mouseover', playKey));
 
 switchButton.addEventListener('click', changeKeyNames);
-
-fulscreenButton.addEventListener('click', () => {
-	if (fulscreenButton.classList.contains('opened')) {
-		deactivateFullscreen();
-	} else {
-		activateFullscreen(document.documentElement);
-	}
-	fulscreenButton.classList.toggle('opened');
-});
-
-document.addEventListener('fullscreenchange', exitFullscreen);
-document.addEventListener('webkitfullscreenchange', exitFullscreen);
-document.addEventListener('mozfullscreenchange', exitFullscreen);
-document.addEventListener('MSFullscreenChange', exitFullscreen);
