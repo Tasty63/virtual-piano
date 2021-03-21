@@ -29,7 +29,7 @@ $maxWidthContainer: 1362px;
 		align-items: center;
 		justify-content: space-between;
 		padding: 0 15px;
-		margin-bottom: 40px;
+		margin-bottom: 50px;
 		border-bottom: 1px solid #d7e4b2;
 		user-select: none;
 	}
@@ -135,6 +135,8 @@ $maxWidthContainer: 1362px;
 
 		&_black {
 			position: absolute;
+			display: flex;
+			justify-content: center;
 			left: 52px;
 			top: 0;
 			width: 51px;
@@ -175,16 +177,17 @@ $maxWidthContainer: 1362px;
 	}
 
 	&__key-name {
-		display: flex;
-		justify-content: center;
+		position: absolute;
+		pointer-events: none;
 		font-size: 24px;
+		color: white;
 
 		&_black {
-			color: white;
+			top: -30px;
 		}
 
 		&_white {
-			margin-bottom: 24px;
+			bottom: -30px;
 		}
 	}
 }
