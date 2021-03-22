@@ -8,6 +8,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const projectName = 'virtual-piano';
 
 module.exports = {
+	optimization: {
+		minimize: false,
+	},
 	experiments: {
 		asset: true,
 	},

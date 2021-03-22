@@ -1,4 +1,4 @@
-const keyboard = document.querySelector('.keyboard');
+const keyboard = document.querySelector('.keyboard__container');
 const switchButton = document.querySelector('.switch');
 const fulscreenButton = document.querySelector('.piano__fulscreen');
 

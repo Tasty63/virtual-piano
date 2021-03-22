@@ -67,7 +67,6 @@ $maxWidthContainer: 1362px;
 	}
 
 	&__keyboard {
-		width: 100%;
 		display: flex;
 		justify-content: center;
 	}
@@ -149,9 +148,18 @@ $maxWidthContainer: 1362px;
 			border-radius: 0px 0px 15px 15px;
 
 			transition: box-shadow 0.15s ease, height 0.15s ease;
+
+			&:hover .keyboard__key-name_black {
+				color: #ffffff;
+			}
+
 			&.active {
 				box-shadow: none;
 				height: 225px;
+
+				& .keyboard__key-name_black {
+					transform: scale(1.1);
+				}
 			}
 		}
 
@@ -159,19 +167,28 @@ $maxWidthContainer: 1362px;
 			position: relative;
 			width: 73px;
 			height: 340px;
-			background: #fcfcfc;
 			margin-right: 10px;
-			box-shadow: inset 0px -15px 0px rgba(171, 165, 165, 0.66);
 			display: flex;
 			justify-content: center;
 			align-items: flex-end;
+			box-shadow: inset 0px -15px 0px rgba(171, 165, 165, 0.66);
+			background: #ebe7e7;
 			transition: box-shadow 0.15s ease;
+			transition: background-color 0.3s ease;
 			&:last-child {
 				margin-right: 0;
 			}
 
+			&:hover .keyboard__key-name_white {
+				color: #ffffff;
+			}
+
 			&.active {
 				box-shadow: none;
+
+				& .keyboard__key-name_white {
+					transform: scale(1.1);
+				}
 			}
 		}
 	}
@@ -180,8 +197,8 @@ $maxWidthContainer: 1362px;
 		position: absolute;
 		pointer-events: none;
 		font-size: 24px;
-		color: white;
-
+		color: #f5d2d2;
+		transition: all 0.3s ease;
 		&_black {
 			top: -30px;
 		}
